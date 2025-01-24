@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlazingStoryExampleApp.Stories</name>
+    </assembly>
+    <members>
+        <member name="P:BlazingStoryExampleApp.Stories.Stories.Button.Text">
+            <summary>
+            Set a text that is button caption.
+            </summary>
+        </member>
+        <member name="P:BlazingStoryExampleApp.Stories.Stories.Button.Color">
+            <summary>
+            Set a color of the button.
+            </summary>
+        </member>
+        <member name="P:BlazingStoryExampleApp.Stories.Stories.Button.OnClick">
+            <summary>
+            Set a callback for the button click event.
+            </summary>
+        </member>
+        <member name="M:BlazingStoryExampleApp.Stories.Stories.Button.#ctor">
+            <summary>
+            This is basic button component.
+            </summary>
+        </member>
+    </members>
+</doc>

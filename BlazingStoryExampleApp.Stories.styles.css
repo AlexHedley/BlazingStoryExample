@@ -1,0 +1,14 @@
+@import '_content/Toolbelt.Blazor.SplitContainer/Toolbelt.Blazor.SplitContainer.bundle.scp.css';
+@import '_content/BlazingStoryExampleApp/BlazingStoryExampleApp.bundle.scp.css';
+
+/* /App.razor.rz.scp.css */
+/* /Stories/Button.razor.rz.scp.css */
+button[b-max5vce1b7] {
+    font-size: 14px;
+    padding: 10px;
+    border: 0;
+    border-radius: 1em;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff
+}
