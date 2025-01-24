@@ -30,6 +30,19 @@ jobs:
       - name: Publish
         run: dotnet publish src/BlazingStoryExampleApp.Stories/BlazingStoryExampleApp.Stories.csproj -c Release -o public -p GHPages=true
 
+      # changes the base-tag in index.html from '/' to 'BlazingStoryExample' to match GitHub Pages repository subdirectory
+      - name: ✏ Change base-tag in index.html from / to BlazingStoryExample
+        run: sed -i 's/<base href="\/" \/>/<base href="\/BlazingStoryExample\/" \/>/g' public/wwwroot/index.html
+  #       working-directory: src
+
+      # copy index.html to 404.html to serve the same file when a file is not found
+      - name: 🗐 copy index.html to 404.html
+        run: cp public/wwwroot/index.html public/wwwroot/404.html
+  
+      # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+      - name: ➕ Add .nojekyll file
+        run: touch public/wwwroot/.nojekyll
+
       # Deploy the site
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
