@@ -35,6 +35,10 @@ jobs:
         run: sed -i 's/<base href="\/" \/>/<base href="\/BlazingStoryExample\/" \/>/g' public/wwwroot/index.html
   #       working-directory: src
 
+      - name: ✏ Change base-tag in iframe.html from / to BlazingStoryExample
+        run: sed -i 's/<base href="\/" \/>/<base href="\/BlazingStoryExample\/" \/>/g' public/wwwroot/iframe.html
+  #       working-directory: src
+
       # copy index.html to 404.html to serve the same file when a file is not found
       - name: 🗐 copy index.html to 404.html
         run: cp public/wwwroot/index.html public/wwwroot/404.html
