@@ -1,0 +1,39 @@
+name: github pages
+
+# https://github.com/jsakamoto/BlazingStory/blob/main/.github/workflows/gh-pages.yml
+# https://raw.githubusercontent.com/jsakamoto/BlazingStory/refs/heads/main/.github/workflows/gh-pages.yml
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Install .NET SDK
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      
+      - name: Install .NET WebAssembly Tools
+        run: dotnet workload install wasm-tools
+
+      # Publish the site
+      - name: Publish
+        run: dotnet publish src/BlazingStoryExampleApp.Stories/BlazingStoryExampleApp.Stories.csproj -c Release -o public -p GHPages=true
+
+      # Deploy the site
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public/wwwroot
+          force_orphan: true
