@@ -1,0 +1,2 @@
+# BlazingStoryExample
+Blazing Story
